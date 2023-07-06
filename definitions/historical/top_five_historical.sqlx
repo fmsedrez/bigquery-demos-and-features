@@ -11,8 +11,8 @@ config {
     week: "Start of the week", 
     term: "Term", 
     state: "State", 
-    score: "",
-    timestamp: "",
+    score: "Score",
+    timestamp: "Timestamp",
   }
 }
-SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) FROM ${ref("top_five_terms")}
+SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) AS timestamp FROM ${ref("top_five_terms")}
