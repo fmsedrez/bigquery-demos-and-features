@@ -1,0 +1,6 @@
+config { 
+    type: "view",
+    name: "max_date_top_term",
+}
+SELECT max(week) AS week FROM ${ref("international_top_terms")}
+WHERE refresh_date = DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) LIMIT 1
