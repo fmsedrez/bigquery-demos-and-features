@@ -5,13 +5,14 @@ config {
   tags: ["historical"],
   dependencies: ["top_five_terms"],
   bigquery: {
-    partitionBy: "DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY)",
+    partitionBy: "DATETIME_TRUNC(timestamp, DAY)",
   },
   columns: {
     week: "Start of the week", 
     term: "Term", 
     state: "State", 
     score: "",
+    timestamp: "",
   }
 }
-SELECT * FROM ${ref("top_five_terms")}
+SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) FROM ${ref("top_five_terms")}
