@@ -5,7 +5,7 @@ config {
   tags: ["historical"],
   dependencies: ["top_five_terms"],
   bigquery: {
-    partitionBy: "DATETIME_TRUNC(<timestamp_column>, DAY)",
+    partitionBy: "DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY)",
   },
   columns: {
     week: "Start of the week", 
