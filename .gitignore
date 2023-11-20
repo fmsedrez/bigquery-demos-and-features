@@ -1,2 +1,5 @@
 node_modules/
 .env
+infra/*.tfplan
+infra/.terraform/
+infra/.terraform.lock.hcl
