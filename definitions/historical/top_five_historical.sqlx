@@ -1,0 +1,18 @@
+config {
+  type: "incremental",
+  schema: "historical",
+  name: "top_five_historical",
+  tags: ["historical"],
+  dependencies: ["top_five_terms"],
+  bigquery: {
+    partitionBy: "DATETIME_TRUNC(timestamp, DAY)",
+  },
+  columns: {
+    week: "Start of the week", 
+    term: "Term", 
+    state: "State", 
+    score: "Score",
+    timestamp: "Timestamp",
+  }
+}
+SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) AS timestamp FROM ${ref("top_five_terms")}
