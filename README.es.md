@@ -1,5 +1,7 @@
-# demostraciones y funciones de Dataform
+# demostraciones y funciones de BigQuery
 Este repositorio contiene demostraciones y funciones para Dataform.
+
+## Dataform
 En estas demostraciones utilizamos la versión GCP del Dataform,
 herramienta que le permite administrar la transformación de datos basada en SQL dentro de BigQuery.
 
