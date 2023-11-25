@@ -4,9 +4,6 @@ publish("top_historical", {
     description: "Top term for each week",
     tags: ["historical"],
     dependencies: ["top_five_terms"],
-    bigquery: {
-        partitionBy: "DATETIME_TRUNC(timestamp, DAY)",
-    },
     columns: {
         week: "Start of the week",
         term: "Term name",
