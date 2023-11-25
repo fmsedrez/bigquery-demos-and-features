@@ -2,7 +2,7 @@
   "defaultSchema": "dataform",
   "assertionSchema": "dataform_assertions",
   "warehouse": "bigquery",
-  "defaultDatabase": "dataform-show",
+  "defaultDatabase": "demos-and-features-dev",
   "defaultLocation": "US"
 }
     

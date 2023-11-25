@@ -6,7 +6,7 @@ config {
 SELECT max(week) as week,
  term, REPLACE(region_code, "BR-", "") AS state,
  score FROM ${ref("international_top_terms")}
-WHERE refresh_date = DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)  
+WHERE refresh_date = DATE_SUB(CURRENT_DATE(), INTERVAL 2 DAY)  
 AND country_code = "BR" 
 AND score <= 5
 AND week = (SELECT * FROM ${ref("max_date_top_term")})
