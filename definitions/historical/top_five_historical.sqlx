@@ -6,6 +6,9 @@ config {
   dependencies: ["top_five_terms"],
   bigquery: {
     partitionBy: "DATETIME_TRUNC(timestamp, DAY)",
+    clusterBy: ["state"],
+    updatePartitionFilter: "timestamp >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)",
+    partitionExpirationDays: 180
   },
   columns: {
     week: "Start of the week", 
@@ -15,4 +18,7 @@ config {
     timestamp: "Timestamp",
   }
 }
-SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) AS timestamp FROM ${ref("top_five_terms")}
+SELECT *, DATETIME_TRUNC(CURRENT_TIMESTAMP(), DAY) AS timestamp 
+FROM ${ref("top_five_terms")}
+WHERE TRUE
+AND state = 'GO'
